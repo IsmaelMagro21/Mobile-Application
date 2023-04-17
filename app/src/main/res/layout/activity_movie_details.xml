@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MovieDetails"
-    android:background="#363636"
+    android:background="@color/white"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -62,6 +62,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
+                android:background="@color/yellow_500"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -88,6 +89,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
+                android:background="@color/yellow_500"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -121,7 +123,7 @@
         android:layout_height="wrap_content"
         android:text="Movie Title"
         android:textSize="22dp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -133,7 +135,7 @@
         android:layout_width="334dp"
         android:layout_height="170dp"
         android:text="Movie Details"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:text="Login"
                 android:textAlignment="center"
-                android:textColor="@color/purple_500"
+                android:textColor="@color/yellow_500"
                 android:textSize="36sp"
                 android:textStyle="bold" />
 
@@ -52,7 +52,7 @@
                 android:drawablePadding="8dp"
                 android:hint="Username"
                 android:padding="8dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
             <EditText
                 android:id="@+id/password"
@@ -63,14 +63,14 @@
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:padding="8dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/loginButton"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
-                android:backgroundTint="@color/purple_600"
+                android:backgroundTint="@color/yellow_500"
                 android:onClick="loginButton"
                 android:text="Login"
                 android:textSize="18sp"

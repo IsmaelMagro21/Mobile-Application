@@ -26,14 +26,19 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
         View itemView = inflater.inflate(R.layout.profilecard, parent, false);
         return new ViewHolder(itemView);
     }
+    // Create an instance of your RecyclerView.Adapter
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position)
     {
         String item = items.get(position);
+        holder.posterImageView.setImageResource(Integer.parseInt(item)); // Bind the data to the TextView
+
+
     }
     @Override
     public int getItemCount() {
         return items.size();
+
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -53,6 +58,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
         }
 
         public void itemOnClick() {
+
 
         }
     }

@@ -62,7 +62,7 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
                 .data(ApiInterface.POSTER_BASE_URL + mv.getPoster_path())
                 .placeholder(R.drawable.poster_placeholder) // add a placeholder image if needed
                 .error(R.drawable.poster_placeholder)
-                .transformations(new RoundedCornersTransformation(25))// add an error image if needed
+                //.transformations(new RoundedCornersTransformation(25))// add an error image if needed
                 .target(holder.posterImage)
                 .build();
         holder.imageLoader.enqueue(request);

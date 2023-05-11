@@ -23,7 +23,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View itemView = inflater.inflate(R.layout.profilecard, parent, false);
+        View itemView = inflater.inflate(R.layout.layout_discovercard, parent, false);
         return new ViewHolder(itemView);
     }
     // Create an instance of your RecyclerView.Adapter
@@ -46,8 +46,8 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
 
         public ViewHolder(final View itemView) {
             super(itemView);
-            posterImageView = (ImageView)
-                    itemView.findViewById(R.id.movie_poster);
+            //needs to be changed posterImageView = (ImageView)
+                   // itemView.findViewById(R.id.movie_poster);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

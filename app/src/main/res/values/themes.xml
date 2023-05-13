@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+ <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.MobileAssignment" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -13,4 +13,14 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-</resources>
+
+
+     <style name="ScreenBackground"><item name="android:background">@color/white</item></style>
+     <style name="CardBackground"><item name="android:background">@color/yellow_500</item></style>
+     <style name="TextColor"><item name="android:background">@color/white</item></style>
+     <style name="ImageChange"><item name="android:src">@drawable/customlogo</item></style>
+
+
+
+
+ </resources>

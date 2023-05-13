@@ -3,10 +3,8 @@ package com.example.mobileassignment.ui.Discover;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.Image;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -28,7 +26,6 @@ import java.util.List;
 import coil.Coil;
 import coil.ImageLoader;
 import coil.request.ImageRequest;
-import coil.transform.RoundedCornersTransformation;
 
 public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHolder> {
 
@@ -79,7 +76,11 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
         public TextView date;
         public ImageView posterImage;
         public ImageLoader imageLoader;
-        public Button addButton;
+
+        public Button unwatchedButton;
+
+
+
 
         public ViewHolder(final View discoverView) {
             super(discoverView);
@@ -88,7 +89,7 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
             date = discoverView.findViewById(R.id.movie_release);
             posterImage = discoverView.findViewById(R.id.movie_poster);
             imageLoader = Coil.imageLoader(discoverView.getContext());
-            addButton = discoverView.findViewById(R.id.add_button);
+            unwatchedButton = discoverView.findViewById(R.id.unwatched_button);
 
             //Movie Card's Click Function
             discoverView.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +107,7 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
                 }
             });
             //Add to List Click Function
-            addButton.setOnClickListener(new View.OnClickListener() {
+            unwatchedButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     MovieResults.ResultsBean selectedMovie = movies.get(getAdapterPosition());
@@ -116,16 +117,18 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
                     String message;
                     if(!selectedMovie.getIsInList()){
                         //Add to List + Change to Orange
-                        addButton.setText("Remove");
-                        addButton.setBackgroundColor(Color.RED);
-                        message = ("Added " +selectedMovie.getTitle());
+                        unwatchedButton.setText("Unwatched");
+                        unwatchedButton.setBackgroundColor(Color.RED);
+                        message = ("Have not watched " +selectedMovie.getTitle());
                         selectedMovie.setInList(true);
+                        unwatchedButton.setVisibility(View.VISIBLE);
                     }
                     else{
-                        addButton.setText("Add To list");
-                        addButton.setBackgroundColor(0xFF388E3C);
-                        message = ("Removed " +selectedMovie.getTitle());
+                        unwatchedButton.setText("Watched");
+                        unwatchedButton.setBackgroundColor(0xFF388E3C);
+                        message = ("Watched " +selectedMovie.getTitle());
                         selectedMovie.setInList(false);
+                        unwatchedButton.setVisibility(View.VISIBLE);
                     }
                     Toast.makeText(v.getContext(), message, Toast.LENGTH_SHORT).show();
                 }

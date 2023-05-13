@@ -10,4 +10,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="purple">#938F9A</color>
     <color name="button_green">#388E3C</color>
+    <color name="darkBlue">#001483</color>
+    <color name="blue">#0022DD</color>
+    <color name="grey">#aaa</color>
+    <color name="darkGrey">#FF424242</color>
+
+
 </resources>

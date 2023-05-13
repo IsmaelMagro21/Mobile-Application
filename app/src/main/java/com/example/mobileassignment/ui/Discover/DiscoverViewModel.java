@@ -3,14 +3,12 @@ package com.example.mobileassignment.ui.Discover;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mobileassignment.API.ApiInterface;
 import com.example.mobileassignment.API.MovieResults;
 
 import java.util.List;
 
-import kotlin.annotation.MustBeDocumented;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

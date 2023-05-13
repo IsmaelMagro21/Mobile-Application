@@ -79,7 +79,9 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
         public TextView date;
         public ImageView posterImage;
         public ImageLoader imageLoader;
-        public Button addButton;
+        public Button not_watchedButton;
+        public Button watchedButton;
+
 
         public ViewHolder(final View discoverView) {
             super(discoverView);
@@ -88,7 +90,9 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
             date = discoverView.findViewById(R.id.movie_release);
             posterImage = discoverView.findViewById(R.id.movie_poster);
             imageLoader = Coil.imageLoader(discoverView.getContext());
-            addButton = discoverView.findViewById(R.id.add_button);
+            not_watchedButton = discoverView.findViewById(R.id.not_watched_button);
+            watchedButton = discoverView.findViewById(R.id.watched_button);
+
 
             //Movie Card's Click Function
             discoverView.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +110,7 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
                 }
             });
             //Add to List Click Function
-            addButton.setOnClickListener(new View.OnClickListener() {
+            not_watchedButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     MovieResults.ResultsBean selectedMovie = movies.get(getAdapterPosition());
@@ -116,14 +120,14 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
                     String message;
                     if(!selectedMovie.getIsInList()){
                         //Add to List + Change to Orange
-                        addButton.setText("Remove");
-                        addButton.setBackgroundColor(Color.RED);
+                        not_watchedButton.setText("Remove");
+                        not_watchedButton.setBackgroundColor(Color.RED);
                         message = ("Added " +selectedMovie.getTitle());
                         selectedMovie.setInList(true);
                     }
                     else{
-                        addButton.setText("Add To list");
-                        addButton.setBackgroundColor(0xFF388E3C);
+                        not_watchedButton.setText("Add To list");
+                        not_watchedButton.setBackgroundColor(0xFF388E3C);
                         message = ("Removed " +selectedMovie.getTitle());
                         selectedMovie.setInList(false);
                     }
@@ -131,7 +135,31 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
                 }
             });
         }
-    }
+
+         watchedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MovieResults.ResultsBean selectedMovie = movies.get(getAdapterPosition());
+                //Checking the correct Movie ID is logged when clicked
+                String id = String.valueOf(+selectedMovie.getId());
+                Log.d("Movie ID:", id);
+                String message;
+                if(!selectedMovie.getIsInList()){
+                    //Add to List + Change to Orange
+                    watchedButton.setText("Remove");
+                    watchedButton.setBackgroundColor(Color.RED);
+                    message = ("Added " +selectedMovie.getTitle());
+                    selectedMovie.setInList(true);
+                }
+                else{
+                    watchedButton.setText("Add To list");
+                    watchedButton.setBackgroundColor(0xFF388E3C);
+                    message = ("Removed " +selectedMovie.getTitle());
+                    selectedMovie.setInList(false);
+                }
+                Toast.makeText(v.getContext(), message, Toast.LENGTH_SHORT).show();
+            }
+        })}
 
     public void updateMovies (List<MovieResults.ResultsBean> newMovies){
         movies.clear();

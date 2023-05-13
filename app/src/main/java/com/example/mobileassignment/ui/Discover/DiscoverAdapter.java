@@ -25,6 +25,7 @@ import com.example.mobileassignment.MovieDetails;
 import com.example.mobileassignment.R;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import coil.Coil;
@@ -35,6 +36,10 @@ import coil.transform.RoundedCornersTransformation;
 public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHolder> {
 
     private List<MovieResults.ResultsBean> movies;
+
+    private com.example.mobileassignment.User user;
+    private DBHelperProfileMovie DBHelperProfileMovie;
+    ArrayList<Integer> marathon;
 
     public DiscoverAdapter(List<MovieResults.ResultsBean> movies) {
         this.movies = movies;
@@ -122,40 +127,39 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
                     if (marathon.contains(selectedMovie.getId())) {
                         Toast.makeText(v.getContext(), "This movie is already in your list", Toast.LENGTH_SHORT).show();
                         return;
+                        holder.removeButton.setVisibility(View.VISIBLE);
+
                     }
                     // Add the movie ID to the User Marathon List
-                    marathon = userDB.getUser(user.getUsername(), user.getPassword()).getMarathon();
                     marathon.add(selectedMovie.getId());
                     user.setMarathon(marathon);
-                    userDB.updateUser(user);
                     addButton.setVisibility(View.INVISIBLE);
-                    removeButton.setVisibility(View.VISIBLE);
+                    holder.removeButton.setVisibility(View.INVISIBLE);
+
                 }
             });
 
-            removeButton.setOnClickListener(new View.OnClickListener() {
                 //This works
-                @Override
-                public void onClick(View v) {
-                    DBHelperLogin userDB = new DBHelperLogin(discoverView.getContext());
-                    MovieResults.ResultsBean selectedMovie = movies.get(getAdapterPosition());
+                //@Override
+                //public void onClick(View v) {
+                   // DBHelperLogin userDB = new DBHelperLogin(discoverView.getContext());
+                   // MovieResults.ResultsBean selectedMovie = movies.get(getAdapterPosition());
 
                     // remove the movie ID from User Marathon List
-                    int index = marathon.indexOf(selectedMovie.getId());
-                    if (index != -1) {
-                        marathon.remove(index);
-                    }
-                    user.setMarathon(marathon);
-                    userDB.updateUser(user);
+                 //   int index = marathon.indexOf(selectedMovie.getId());
+                  //  if (index != -1) {
+                  //      marathon.remove(index);
+                 //   }
+                 //   user.setMarathon(marathon);
+                 //   userDB.updateUser(user);
 
                     // Update the user's marathon list in the current adapter
-                    marathon = user.getMarathon();
-                    notifyDataSetChanged();
+                 //   marathon = user.getMarathon();
+                 //   notifyDataSetChanged();
 
-                    addButton.setVisibility(View.VISIBLE);
-                    removeButton.setVisibility(View.INVISIBLE);
-                }
-            });
+                //    addButton.setVisibility(View.VISIBLE);
+              //  }
+           // });
         }
     }
     public void updateMovies (List<MovieResults.ResultsBean> newMovies){

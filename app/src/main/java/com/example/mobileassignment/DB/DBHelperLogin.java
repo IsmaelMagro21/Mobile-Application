@@ -21,7 +21,7 @@ public class DBHelperLogin extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase MyDB   , int i, int x) {
+    public void onUpgrade(SQLiteDatabase MyDB, int i, int x) {
         MyDB.execSQL("drop Table if exists users");
 
     }
@@ -32,7 +32,7 @@ public class DBHelperLogin extends SQLiteOpenHelper {
         contentValues.put("username", username);
         contentValues.put("password", password);
         long result = MyDB.insert("users", null, contentValues);
-        if (result==1) return false;
+        if (result == 1) return false;
         else
             return true;
 
@@ -41,19 +41,22 @@ public class DBHelperLogin extends SQLiteOpenHelper {
 
     public Boolean checkusername(String username) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from users where Username = ?", new String[] {username});
-        if (cursor.getCount()>0)
-                return true;
+        Cursor cursor = MyDB.rawQuery("Select * from users where Username = ?", new String[]{username});
+        if (cursor.getCount() > 0)
+            return true;
         else
             return false;
 
     }
+
     public Boolean checkusernamepassword(String username, String password) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from users where username = ? and password = ?", new String[] {username,password});
-        if(cursor.getCount()>0)
+        Cursor cursor = MyDB.rawQuery("Select * from users where username = ? and password = ?", new String[]{username, password});
+        if (cursor.getCount() > 0)
             return true;
         else
             return false;
     }
+
+
 }

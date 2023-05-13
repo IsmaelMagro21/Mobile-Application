@@ -15,8 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mobileassignment.API.ApiInterface;
 import com.example.mobileassignment.API.MovieResults;
 import com.example.mobileassignment.DB.DBHelperLogin;
-import com.example.mobileassignment.Database.User;
-import com.example.mobileassignment.Database.backend.UserDbHelper;
+import com.example.mobileassignment.User;
 import com.example.mobileassignment.MovieDetails;
 import com.example.mobileassignment.R;
 
@@ -33,7 +32,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
     private ArrayList<MovieResults.ResultsBean> marathon; // List of movies to display
     private User user; // User information
 
-    public ProfileAdapter(ArrayList<MovieResults.ResultsBean> marathon, User user){
+    public ProfileAdapter(ArrayList<MovieResults.ResultsBean> marathon){
         this.marathon = marathon;
         this.user = user;
     }
@@ -126,8 +125,6 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
                     }
 
                     user.setMarathon(userList);
-                    userDB.updateUser(user);
-
                     // Remove the item from the list and notify the adapter
                     marathon.remove(getAdapterPosition());
                     notifyItemRemoved(getAdapterPosition());

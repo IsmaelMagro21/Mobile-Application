@@ -1,4 +1,4 @@
-package com.example.mobileassignment.Database;
+package com.example.mobileassignment;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -14,7 +14,6 @@ import java.util.List;
 
 public class ProfileViewModel extends ViewModel {
 
-    private MutableLiveData<User> userLiveData;
     private MutableLiveData<List<Integer>> marathonLiveData;
     private MutableLiveData<List<MovieResults.ResultsBean>> marathonResults;
     private DBHelperProfileMovie dbHelper;
@@ -23,8 +22,6 @@ public class ProfileViewModel extends ViewModel {
      * Initializes the LiveData objects and retrieves the marathon movies.
      */
     public ProfileViewModel() {
-        userLiveData = new MutableLiveData<>();
-        userLiveData = getUserLiveData();
         marathonLiveData = new MutableLiveData<>();
         marathonLiveData = getMarathonLiveData();
         marathonResults = new MutableLiveData<>();
@@ -36,19 +33,11 @@ public class ProfileViewModel extends ViewModel {
      * Sets the user data in the ViewModel.
      * @param user The user object to be set.
      */
-    public void setUser(User user) {
-        userLiveData.setValue(user);
-        marathonLiveData.setValue(user.getMarathon());
-    }
 
     /**
      * Retrieves the LiveData object containing the user data.
      * @return The MutableLiveData object for the user data.
      */
-    public MutableLiveData<User> getUserLiveData() {
-        return userLiveData;
-    }
-
     /**
      * Retrieves the LiveData object containing the marathon data.
      * @return The MutableLiveData object for the marathon data.

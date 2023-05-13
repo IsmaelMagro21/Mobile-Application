@@ -41,8 +41,6 @@ public class DiscoverFragment extends Fragment {
 
     private DBHelperLogin userHelper;
 
-    private User user;
-
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         discoverViewModel = new ViewModelProvider(this).get(DiscoverViewModel.class);
@@ -51,8 +49,6 @@ public class DiscoverFragment extends Fragment {
         View root = binding.getRoot();
 
         discoverView = root.findViewById(R.id.movies_list);
-
-        user = ((MainActivity) requireActivity()).getUser();
 
         setUpRecyclerView();
         fetchItems();

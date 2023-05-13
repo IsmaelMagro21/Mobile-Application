@@ -16,9 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mobileassignment.API.MovieResults;
 import com.example.mobileassignment.DB.DBHelperLogin;
 import com.example.mobileassignment.DB.DBHelperProfileMovie;
-import com.example.mobileassignment.Database.User;
-import com.example.mobileassignment.Database.backend.MovieDbHelper;
-import com.example.mobileassignment.Database.backend.UserDbHelper;
+import com.example.mobileassignment.User;
 import com.example.mobileassignment.MainActivity;
 import com.example.mobileassignment.R;
 import com.example.mobileassignment.databinding.FragmentProfileBinding;
@@ -33,7 +31,6 @@ public class ProfileFragment extends Fragment {
     private RecyclerView profileView;
     private ProfileViewModel profileViewModel;
     private TextView name_holder;
-    private User updatedUser;
     private DBHelperProfileMovie dbHelper;
     private DBHelperLogin userHelper;
     private ArrayList<MovieResults.ResultsBean> marathon;
@@ -46,28 +43,19 @@ public class ProfileFragment extends Fragment {
 
         // Get references to the views
         profileView = root.findViewById(R.id.grid_list);
-        name_holder = root.findViewById(R.id.full_name);
         noMovies = root.findViewById(R.id.noMoviesText);
 
         // Create instances of the database helpers
         dbHelper = new DBHelperProfileMovie(getContext());
         userHelper = new DBHelperLogin(getContext());
 
-        // Get the logged-in user from the MainActivity
-        User user = getUser();
-        // Retrieve the updated user from the database
-        updatedUser = userHelper.getUser(user.getUsername(), user.getPassword());
 
-        if (updatedUser != null) {
-            name_holder.setText(updatedUser.getFullName());
-        } else {
-            name_holder.setText("__Profile Name__");
-        }
+
 
         // Get the list of movie ID's of the user
-        List<Integer> faveIDs = updatedUser.getMarathon();
         // Convert movie IDs into MovieResults.ResultsBean objects
-        ArrayList<MovieResults.ResultsBean> live = makeMovies(faveIDs);
+        List<Integer> faveIDs = null;
+        ArrayList<MovieResults.ResultsBean> live = makeMovies(null);
 
         fetchItems();
         // Set up the RecyclerView with the movies list
@@ -119,14 +107,9 @@ public class ProfileFragment extends Fragment {
         } else {
             noMovies.setVisibility(View.INVISIBLE);
         }
-        pAdapter = new ProfileAdapter(marathon, updatedUser);
+        pAdapter = new ProfileAdapter(marathon);
         profileView.setAdapter(pAdapter);
         profileView.setLayoutManager(new LinearLayoutManager(profileView.getContext()));
     }
 
-    // Method to get the logged-in user
-    public User getUser() {
-        // Retrieve the user from the MainActivity using the requireActivity() method
-        return ((MainActivity) requireActivity()).getUser();
-    }
 }

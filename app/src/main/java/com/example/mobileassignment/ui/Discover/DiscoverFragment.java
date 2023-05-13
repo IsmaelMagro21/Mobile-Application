@@ -18,6 +18,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mobileassignment.API.ApiInterface;
+import com.example.mobileassignment.DB.DBHelperLogin;
+import com.example.mobileassignment.MainActivity;
 import com.example.mobileassignment.R;
 import com.example.mobileassignment.databinding.FragmentDiscoverBinding;
 
@@ -37,11 +39,21 @@ public class DiscoverFragment extends Fragment {
     private RecyclerView discoverView;
     private DiscoverViewModel discoverViewModel;
 
+    private DBHelperLogin userHelper;
+
+    private User user;
+
+
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         discoverViewModel = new ViewModelProvider(this).get(DiscoverViewModel.class);
+
         binding = FragmentDiscoverBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
         discoverView = root.findViewById(R.id.movies_list);
+
+        user = ((MainActivity) requireActivity()).getUser();
+
         setUpRecyclerView();
         fetchItems();
         return root;
@@ -53,7 +65,10 @@ public class DiscoverFragment extends Fragment {
         binding = null;
     }
     private void fetchItems() {
-        discoverViewModel.getMovies().observe(getViewLifecycleOwner(), movieList ->{dAdapter.updateMovies(movieList);});
+        // Observe the movie list from the DiscoverViewModel and update the adapter
+        discoverViewModel.getMovies().observe(getViewLifecycleOwner(), movieList -> {
+            dAdapter.updateMovies(movieList);
+        });
     }
     private void setUpRecyclerView() {
         dAdapter = new DiscoverAdapter(new ArrayList<>());

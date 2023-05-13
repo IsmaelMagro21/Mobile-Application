@@ -9,14 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.mobileassignment.R;
+import com.example.mobileassignment.DB.DBHelperLogin;
 
 public class LoginActivity extends AppCompatActivity {
 
     EditText username, password;
     Button login;
 
-    DBHelper DB;
+    DBHelperLogin DB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         username = (EditText) findViewById(R.id.username1);
         password = (EditText) findViewById(R.id.password1);
         login = (Button) findViewById(R.id.loginButton1);
-        DB = new DBHelper(this);
+        DB = new DBHelperLogin(this);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

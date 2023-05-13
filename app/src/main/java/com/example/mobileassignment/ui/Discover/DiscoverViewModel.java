@@ -39,6 +39,7 @@ public class DiscoverViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<MovieResults> call, Throwable t) {
+
                 t.printStackTrace();
             }
         });

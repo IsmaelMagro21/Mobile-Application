@@ -10,14 +10,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mobileassignment.DBHelper;
+import com.example.mobileassignment.DB.DBHelperLogin;
 
 
 public class RegisterActivity extends AppCompatActivity {
 
     EditText username, password, repeatpassword;
     Button login, register;
-    DBHelper DB;
+    DBHelperLogin DB;
 
     TextView header;
 
@@ -33,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
         login = (Button) findViewById(R.id.loginButton);
 
         //header = findViewById(R.id.loginText);
-        DB = new DBHelper(this);
+        DB = new DBHelperLogin(this);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

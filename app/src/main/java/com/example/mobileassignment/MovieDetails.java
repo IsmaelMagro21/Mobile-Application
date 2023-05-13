@@ -67,6 +67,7 @@ public class MovieDetails extends AppCompatActivity {
                 .error(R.drawable.poster_placeholder)
                 .target(movie_backdrop)
                 .build();
+
         imageLoader.enqueue(backdrop);
         imageLoader.enqueue(poster);
 

@@ -1,4 +1,4 @@
-package com.example.mobileassignment;
+package com.example.mobileassignment.DB;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,13 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
-
-public class DBHelper extends SQLiteOpenHelper {
+public class DBHelperLogin extends SQLiteOpenHelper {
 
     public static final String DBNAME = "Login.db";
 
-    public DBHelper(Context context) {
+    public DBHelperLogin(Context context) {
         super(context, "Login.db", null, 1);
     }
 

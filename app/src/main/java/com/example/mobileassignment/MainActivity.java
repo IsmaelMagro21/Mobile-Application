@@ -39,4 +39,12 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
+
+    public User getUser() {
+        // Retrieve the user object from the intent's extras
+        Bundle bundle = this.getIntent().getExtras();
+        user = (User) bundle.getSerializable("user");
+
+        return user;
+    }
 }

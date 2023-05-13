@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mobileassignment.API.ApiInterface;
 import com.example.mobileassignment.API.MovieResults;
+import com.example.mobileassignment.DB.DBHelperLogin;
+import com.example.mobileassignment.DB.DBHelperProfileMovie;
 import com.example.mobileassignment.MovieDetails;
 import com.example.mobileassignment.R;
 
@@ -109,30 +111,53 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
             addButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    DBHelperProfileMovie movieDB = new DBHelperProfileMovie(discoverView.getContext());
+                    DBHelperLogin userDB = new DBHelperLogin(discoverView.getContext());
                     MovieResults.ResultsBean selectedMovie = movies.get(getAdapterPosition());
-                    //Checking the correct Movie ID is logged when clicked
-                    String id = String.valueOf(+selectedMovie.getId());
-                    Log.d("Movie ID:", id);
-                    String message;
-                    if(!selectedMovie.getIsInList()){
-                        //Add to List + Change to Orange
-                        addButton.setText("Remove");
-                        addButton.setBackgroundColor(Color.RED);
-                        message = ("Added " +selectedMovie.getTitle());
-                        selectedMovie.setInList(true);
+
+                    // Add the movie to the movie database
+                    movieDB.addMovie(selectedMovie);
+
+                    // Check if the movie ID already exists in the User Marathon List
+                    if (marathon.contains(selectedMovie.getId())) {
+                        Toast.makeText(v.getContext(), "This movie is already in your list", Toast.LENGTH_SHORT).show();
+                        return;
                     }
-                    else{
-                        addButton.setText("Add To list");
-                        addButton.setBackgroundColor(0xFF388E3C);
-                        message = ("Removed " +selectedMovie.getTitle());
-                        selectedMovie.setInList(false);
+                    // Add the movie ID to the User Marathon List
+                    marathon = userDB.getUser(user.getUsername(), user.getPassword()).getMarathon();
+                    marathon.add(selectedMovie.getId());
+                    user.setMarathon(marathon);
+                    userDB.updateUser(user);
+                    addButton.setVisibility(View.INVISIBLE);
+                    removeButton.setVisibility(View.VISIBLE);
+                }
+            });
+
+            removeButton.setOnClickListener(new View.OnClickListener() {
+                //This works
+                @Override
+                public void onClick(View v) {
+                    DBHelperLogin userDB = new DBHelperLogin(discoverView.getContext());
+                    MovieResults.ResultsBean selectedMovie = movies.get(getAdapterPosition());
+
+                    // remove the movie ID from User Marathon List
+                    int index = marathon.indexOf(selectedMovie.getId());
+                    if (index != -1) {
+                        marathon.remove(index);
                     }
-                    Toast.makeText(v.getContext(), message, Toast.LENGTH_SHORT).show();
+                    user.setMarathon(marathon);
+                    userDB.updateUser(user);
+
+                    // Update the user's marathon list in the current adapter
+                    marathon = user.getMarathon();
+                    notifyDataSetChanged();
+
+                    addButton.setVisibility(View.VISIBLE);
+                    removeButton.setVisibility(View.INVISIBLE);
                 }
             });
         }
     }
-
     public void updateMovies (List<MovieResults.ResultsBean> newMovies){
         movies.clear();
         movies.addAll(newMovies);

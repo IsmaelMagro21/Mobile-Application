@@ -16,10 +16,6 @@ public interface ApiInterface {
     String LANGUAGE = "en-US";
     String CATEGORY = "popular";
 
-    static void setPage(int i) {
-        i = PAGE;
-    }
-
     //https://api.themoviedb.org/3/trending/all/day?api_key=9f514cf61fa17e951146f7c97600bd4b&language=en&page=1
 
     @GET("/3/movie/{category}")

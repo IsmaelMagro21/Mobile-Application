@@ -16,7 +16,7 @@
 
     <style name="ScreenBackground"><item name="android:background">@color/darkGrey</item></style>
     <style name="CardBackground"><item name="android:background">@color/darkBlue</item></style>
-    <style name="TextColor"><item name="android:background">@color/black</item></style>
+    <style name="TextColor"><item name="android:background">@color/darkBlue</item></style>
     <style name="ImageChange"><item name="android:src">@drawable/darkcustomlogo</item></style>
 
 </resources>

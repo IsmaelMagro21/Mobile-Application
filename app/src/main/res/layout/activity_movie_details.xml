@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
                     android:text="En"
-                    android:textColor="@color/white"
+                    style="@style/TextColor"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:textAllCaps="true" />
@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
                     android:text="360"
-                    android:textColor="@color/white"
+                    style="@style/TextColor"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 

@@ -20,6 +20,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    <!-- instructions for the user to follow to switch to and from dark mode-->
     <TextView
         android:id="@+id/modeText"
         android:layout_width="wrap_content"
@@ -34,6 +35,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         />
 
+    <!-- Logic needed for the switch to work, including using the thumb which is responsible for the moving of the switch-->
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switchMode"
         android:layout_width="wrap_content"

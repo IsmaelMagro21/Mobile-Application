@@ -8,6 +8,7 @@
     style="@style/ScreenBackground"
     >
 
+    <!--setting the card background where the movie will be displayed-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/dataRoot"
         android:layout_width="497dp"
@@ -28,6 +29,8 @@
             android:orientation="vertical"
             app:layout_constraintGuide_begin="271dp" />
 
+        <!--Displaying the movie title, being fetched from the API-->
+
         <TextView
             android:id="@+id/movie_title"
             android:layout_width="145dp"
@@ -43,6 +46,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:textAllCaps="true" />
 
+        <!-- Displaying the star for the rating-->
         <ImageView
             android:id="@+id/imgVote"
             android:layout_width="30dp"
@@ -52,6 +56,8 @@
             android:src="@drawable/ic_round_star_24"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/movie_title" />
+
+        <!--Displaying the rating the movie was given, being fetched from the API-->
 
         <TextView
             android:id="@+id/movie_rate"
@@ -66,6 +72,9 @@
             app:layout_constraintStart_toEndOf="@+id/imgVote"
             app:layout_constraintTop_toTopOf="@+id/imgVote" />
 
+
+        <!--Displaying the calendar for the date released-->
+
         <ImageView
             android:id="@+id/imgDate"
             android:layout_width="30dp"
@@ -76,6 +85,7 @@
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/movie_rate" />
 
+        <!--Displaying the date when the movie released, being fetched from the API-->
         <TextView
             android:id="@+id/movie_release"
             android:layout_width="wrap_content"
@@ -89,6 +99,7 @@
             app:layout_constraintStart_toEndOf="@+id/imgDate"
             app:layout_constraintTop_toTopOf="@+id/imgDate" />
 
+        <!--setting the Interested button-->
         <Button
             android:id="@+id/unwatched_button"
             android:layout_width="131dp"
@@ -107,6 +118,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!--Where the movie poster will be displayed from API.-->
     <ImageView
         android:id="@+id/movie_poster"
         android:layout_width="180dp"

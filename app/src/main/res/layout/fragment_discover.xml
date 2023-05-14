@@ -8,6 +8,7 @@
     android:layout_marginTop="50dp"
     >
 
+    <!-- Used to Display the movies in a RecyclerView and specifies the background colour for the discover fragment-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/movies_list"
         android:layout_width="match_parent"

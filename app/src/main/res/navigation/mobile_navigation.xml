@@ -5,12 +5,14 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_dashboard">
 
+    <!--setting the navigation for the mode fragment-->
     <fragment
         android:id="@+id/navigation_mode"
         android:name="com.example.mobileassignment.ui.Mode.DarkModeFragment"
         android:label="@string/title_mode"
         tools:layout="@layout/fragment_mode" />
 
+    <!--setting the navigation for the discover fragment-->
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.mobileassignment.ui.Discover.DiscoverFragment"

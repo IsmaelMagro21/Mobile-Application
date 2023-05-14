@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">The Movie Marathon</string>
-    <string name="title_mode">Dark Mode</string>
+    <string name="title_mode">Mode</string>
     <string name="title_dashboard">Discover</string>
     <string name="watched_button">Watched</string>
     <string name="unwatched_button">Unwatched</string>

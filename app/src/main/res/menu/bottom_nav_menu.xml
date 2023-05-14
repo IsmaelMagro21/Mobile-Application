@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--setting the bottom navigation for the discover fragment-->
     <item
         android:id="@+id/navigation_dashboard"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_dashboard" />
 
+    <!--setting the bottom navigation button for the mode fragment-->
     <item
         android:id="@+id/navigation_mode"
         android:icon="@drawable/baseline_dark_mode_24"

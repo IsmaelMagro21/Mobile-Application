@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MovieDetails"
-    style="@style/ScreenBackground"
-    >
+    style="@style/ScreenBackground">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/imgLayout"
@@ -15,6 +14,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Displays the movie backdrop from the API-->
 
         <ImageView
             android:id="@+id/backdrop"
@@ -27,6 +28,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Displays the movie image from the API-->
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgMovie"
@@ -68,11 +71,15 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
+                <!-- Displays the Language-->
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Language"
                     android:textSize="20sp" />
+
+                <!-- Displays the language from the API-->
 
                 <TextView
                     android:id="@+id/lan"
@@ -95,11 +102,15 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
+                <!-- Displays the popularity title-->
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Popularity"
                     android:textSize="20sp" />
+
+                <!-- Displays the movie popularity from the API-->
 
                 <TextView
                     android:id="@+id/pop"
@@ -117,6 +128,7 @@
     </androidx.cardview.widget.CardView>
 
 
+    <!-- Displays the movie title from the API-->
     <TextView
         android:id="@+id/title_movie"
         android:layout_width="wrap_content"
@@ -129,6 +141,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgLayout"
         app:layout_constraintVertical_bias="0.046" />
+
+    <!-- Displays the movie description from the API-->
 
     <TextView
         android:id="@+id/description"

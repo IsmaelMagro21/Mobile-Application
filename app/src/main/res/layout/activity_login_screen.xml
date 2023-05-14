@@ -8,6 +8,8 @@
     android:background="@drawable/loginbk"
     tools:context=".LoginActivity">
 
+    <!--Displays the image-->
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -34,6 +36,8 @@
             android:orientation="vertical"
             android:padding="15dp">
 
+            <!--Title text-->
+
             <TextView
                 android:id="@+id/loginText"
                 android:layout_width="match_parent"
@@ -43,6 +47,8 @@
                 android:textColor="@color/yellow_500"
                 android:textSize="36sp"
                 android:textStyle="bold" />
+
+            <!--Allows the user to enter his username-->
 
             <EditText
                 android:id="@+id/username1"
@@ -54,6 +60,8 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:drawableLeft="@drawable/baseline_person_outline_24"/>
+
+            <!--Allows the user to enter his password-->
 
             <EditText
                 android:id="@+id/password1"
@@ -68,6 +76,7 @@
                 android:drawableLeft="@drawable/baseline_password_24"/>
 
 
+            <!-- Login button-->
             <Button
                 android:id="@+id/loginButton1"
                 android:layout_width="match_parent"

@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-
+     <!--Setting a style for light mode-->
      <style name="ScreenBackground"><item name="android:background">@color/white</item></style>
      <style name="CardBackground"><item name="android:background">@color/yellow_500</item></style>
      <style name="TextColor"><item name="android:background">@color/yellow_500</item></style>

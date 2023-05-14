@@ -8,6 +8,7 @@
     android:background="@drawable/loginbk"
     tools:context=".RegisterActivity">
 
+    <!-- App logo being output -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -24,8 +25,7 @@
         app:cardCornerRadius="30dp"
         app:cardElevation="40dp"
         android:layout_row="1"
-        android:layout_column="0"
-        >
+        android:layout_column="0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,6 +33,8 @@
             android:layout_gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="15dp">
+
+            <!--Title for page-->
 
             <TextView
                 android:id="@+id/registerText"
@@ -43,6 +45,8 @@
                 android:textColor="@color/yellow_500"
                 android:textSize="36sp"
                 android:textStyle="bold" />
+
+            <!--Allows for the user to enter his username for the first time-->
 
             <EditText
                 android:id="@+id/username"
@@ -55,6 +59,7 @@
                 android:textColor="@color/black"
                 android:drawableLeft="@drawable/baseline_person_outline_24"/>
 
+            <!--Allows for the user to enter his password for the first time-->
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
@@ -66,6 +71,8 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:drawableLeft="@drawable/baseline_password_24"/>
+
+            <!--Allows for the user to enter his password for the second time-->
 
             <EditText
                 android:id="@+id/repeatpassword"
@@ -80,6 +87,7 @@
                 android:drawableLeft="@drawable/baseline_password_24"/>
             <!--android:onClick="registerButton"-->
 
+            <!--Button that allows for the user to confirm his details and login-->
 
             <Button
                 android:id="@+id/loginButton"
@@ -91,6 +99,8 @@
                 android:text="Register and Login"
                 android:textSize="17sp"
                 app:cornerRadius="20dp" />
+
+            <!--Allows for the user to enter his credentials if he has an account already-->
 
             <Button
                 android:id="@+id/registerButton"

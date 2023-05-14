@@ -14,6 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!--Setting a style for dark mode-->
     <style name="ScreenBackground"><item name="android:background">@color/darkGrey</item></style>
     <style name="CardBackground"><item name="android:background">@color/darkBlue</item></style>
     <style name="TextColor"><item name="android:background">@color/darkBlue</item></style>

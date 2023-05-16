@@ -1,2 +1,2 @@
 # Mobile-Assignment
-//hey
+//Hello there, this is my movie logging mobile application 

@@ -11,19 +11,24 @@ import androidx.appcompat.widget.SwitchCompat;
 
 public class DarkModeActivity extends AppCompatActivity {
 
+    //declaration of variables
     SwitchCompat switchMode;
     boolean nightMode;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //  super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_mode);
 
+        //Initializes the switchMode variable by finding the switch widget from the layout using its ID.
+
         super.onCreate(savedInstanceState);
         switchMode = findViewById(R.id.switchMode);
 
+        //Retrieves the night mode preference from the shared preferences using getBoolean() method.
         sharedPreferences = getSharedPreferences("MODE", Context.MODE_PRIVATE);
         nightMode = sharedPreferences.getBoolean("nightMode", false);
 
@@ -46,6 +51,7 @@ public class DarkModeActivity extends AppCompatActivity {
 
                 }
                 editor.apply();
+                //This activity saves the night mode preference using SharedPreferences and updates the UI and application's default night mode accordingly
 
             }
 

@@ -11,6 +11,7 @@ public class MovieResults implements Serializable {
     private int total_results;
     private List<ResultsBean> results;
 
+    //This Class represenets the reponse structure for the movie API
     public List<ResultsBean> getResults() {
         return results;
     }

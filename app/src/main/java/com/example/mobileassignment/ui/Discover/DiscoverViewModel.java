@@ -18,6 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class DiscoverViewModel extends ViewModel {
     private MutableLiveData<List<MovieResults.ResultsBean>>movieList = new MutableLiveData<>();
 
+    //The constructor of the class is responsible for making an API request to fetch the movie results and populating the movieList object.
     public DiscoverViewModel() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ApiInterface.BASE_URL)
@@ -30,11 +31,14 @@ public class DiscoverViewModel extends ViewModel {
             @Override
             public void onResponse(Call<MovieResults> call, Response<MovieResults> response) {
                 MovieResults results = response.body();
+                //The list of movie results is obtained from the results object and assigned to the ListOfMovies variable
                 List<MovieResults.ResultsBean> ListOfMovies = results.getResults();
+                //The movieList object is updated with the new list of movies using the setValue method, which notifies the observing components about the change.
                 movieList.setValue(ListOfMovies);
 
             }
 
+            //In case of failure
             @Override
             public void onFailure(Call<MovieResults> call, Throwable t) {
                 t.printStackTrace();
@@ -42,6 +46,7 @@ public class DiscoverViewModel extends ViewModel {
         });
     }
 
+    //Returns the movieList object as LiveData
     public LiveData<List<MovieResults.ResultsBean>>getMovies(){
         return movieList;
     }

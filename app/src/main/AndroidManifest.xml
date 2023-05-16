@@ -18,6 +18,7 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
+
         <activity
             android:name=".MovieDetails"
             android:exported="false" />
@@ -30,10 +31,9 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
-
+    <!--Defines the activities and the main launcher the application is meant to launch in-->
 </manifest>

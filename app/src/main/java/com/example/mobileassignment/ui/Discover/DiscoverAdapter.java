@@ -31,10 +31,12 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
 
     private List<MovieResults.ResultsBean> movies;
 
+    //Contains a list of MovieResults.ResultsBean objects to hold the movie data
     public DiscoverAdapter(List<MovieResults.ResultsBean> movies) {
         this.movies = movies;
     }
 
+    //Inflates the layout_discovercard.xml layout file to create the view for each movie item
     @NonNull
     @Override
     public DiscoverAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -44,6 +46,7 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
         return new DiscoverAdapter.ViewHolder(discoverView);
     }
 
+    //Responsible for binding the data to the views of each item in the RecyclerView
     @Override
     public void onBindViewHolder(@NonNull DiscoverAdapter.ViewHolder holder, int position) {
         MovieResults.ResultsBean mv = movies.get(position);
@@ -65,12 +68,15 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
         holder.imageLoader.enqueue(request);
     }
 
+    //returns size of list
     @Override
     public int getItemCount() {
         return movies.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+
+        //declaration of variables
         public TextView primaryTextView;
         public TextView rating;
         public TextView date;
@@ -81,7 +87,7 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
 
 
 
-
+//Sets up click listeners for both the movie card and the "unwatchedButton" button.
         public ViewHolder(final View discoverView) {
             super(discoverView);
             primaryTextView = discoverView.findViewById(R.id.movie_title);
@@ -136,6 +142,7 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
         }
     }
 
+    //Clears the existing movie list, adds all the items from the new list
     public void updateMovies (List<MovieResults.ResultsBean> newMovies){
         movies.clear();
         movies.addAll(newMovies);

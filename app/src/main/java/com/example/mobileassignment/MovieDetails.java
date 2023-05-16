@@ -29,6 +29,8 @@ public class MovieDetails extends AppCompatActivity {
     private TextView language;
     private TextView popularity;
 
+    //super.onCreate nsavedInstanceState is called to perform the default initialization of the activity
+    //setContentView R.layout.activity_movie_details sets the layout file activity_movie_details.xml as the content view for the activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -51,7 +51,7 @@ public class DarkModeActivity extends AppCompatActivity {
 
                 }
                 editor.apply();
-                //This activity saves the night mode preference using SharedPreferences and updates the UI and application's default night mode accordingly
+                //This activity saves the night mode preference using SharedPreferences and updates the UI
 
             }
 
